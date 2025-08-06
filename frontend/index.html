@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap</title>
+    <link rel="stylesheet" type="text/css" href="design.css">
+    
+</head>
+<body>
+    <div class="ana-content">
+    <div class="form-wrapper">
+      <div class="form-header">
+        <h1 class="baslik">X Bank</h1>
+        <h2 class="baslık-bilgi">Dijital İnternet Bankacılığı</h2>
+        </div>
+        <form id="loginForm" method="post">
+  <div class="qr-code"></div>
+  <div class="form-group first-group">
+    <div class="input-wrap">
+      <label for="mno"><b>Müşteri Numaranız / TCKN</b></label>
+      <input type="text" class="mno" inputmode="numeric" pattern="[0-9]*" id="mno" maxlength="12" name="mname">
+      <div class="alt-katman sadece-checkbox">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group second-group">
+    <div class="input-wrap">
+      <label for="mpassword"><b>Şifre</b></label>
+      <input type="password" class="mpassword" id="mpassword" name="mpw" maxlength="6" pattern="\d{6}" inputmode="numeric">
+      <div class="alt-katman">
+        <div class="checkbox-group sol-alt">
+        <label for="save">Beni Hatırla
+        <input type="checkbox" id="save" >
+      </label>
+      </div>
+      <div class="checkbox-group sag-alt">
+        <label class="goz-label">
+        <input type="checkbox" id="show" hidden>
+        <span class="goz-icon"></span>
+        </label>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input type="button" value="Giriş Yap">
+    <input type="button" id="qrgiris" value="QR İle Gir" onclick="qrilegir()"  style="margin-top: 12px;">
+  </div>
+
+  <h2 class="alt-baslik">Dijital Banka Müşterimiz Olmak İçin</h2>
+
+  <div class="form-group">
+    <input type="button" value="Başvur">
+  </div>
+  <div class="forgot-wrapper">
+  <a href="#" class="forgot-psw"><b>Şifremi</b> Unuttum.</a>
+  </div>
+  <p class="dil" onclick="translate()">English</p>
+  </div>
+</form>
+        <div class="reklam">
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="kod.js"></script>
+</body>
+</html>
