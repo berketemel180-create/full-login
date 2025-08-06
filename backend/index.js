@@ -4,7 +4,7 @@ const app = express();
 app.use(express.json());
 
 const path = require('path');
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/login', (req, res) => {
   const { musteriNo, sifre } = req.body;
