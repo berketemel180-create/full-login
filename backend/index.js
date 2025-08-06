@@ -3,8 +3,8 @@ const app = express();
 
 app.use(express.json());
 
-// ÖNEMLİ: Bu satır frontend'i sunar
-app.use(express.static('public'));
+const path = require('path');
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.post('/login', (req, res) => {
   const { musteriNo, sifre } = req.body;
