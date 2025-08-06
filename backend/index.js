@@ -2,7 +2,9 @@ const express = require('express');
 
 const app = express();
 
+
 app.use(express.json());
+
 
 app.post('/login', (req, res) => {
   const { musteriNo, sifre } = req.body;
@@ -14,6 +16,13 @@ app.post('/login', (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("Sunucu çalışıyor");
+
+app.get("/", (req, res) => {
+  res.send("Sunucu çalışıyor! 🚀");
+});
+
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Sunucu ${PORT} portunda çalışıyor`);
 });
