@@ -1,0 +1,986 @@
+*{
+box-sizing: border-box;
+}
+html,body{
+height: 100%;
+overflow: hidden;
+}
+body{
+background-image: url("resimler/arkaplan.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 0;
+padding: 0;
+font-family: 'Inter', sans-serif;
+}
+.ana-content{
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+width: 95%;
+max-width: 1320px;
+height: 100%;
+max-height: 750px;
+background-color: #E1E7FF;
+/*margin: 80px auto;*/
+border-radius: 30px;
+padding: 30px;
+overflow: hidden;
+}
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+}
+.form-header{
+  margin-top: 10%;
+}
+.baslik{
+font-size: 28px;
+color: #101090;
+margin-left: 41%;
+flex: 0;
+max-width: 400px;
+}
+.baslık-bilgi{
+font-size: 18px;
+color: #101090;
+margin-left: 31%;
+flex: 0;
+max-width: 400px;
+}
+.baslik,form{
+text-align: left;
+}
+.alt-baslik{
+font-size: 16px;
+color: #101090;
+}
+label{
+  font-size: 14px;
+color: #101090;
+margin-bottom: 2px;
+}
+a{
+  color: #101090;
+  font-size: 13px;
+}
+::placeholder{
+  font-size: 14px;
+  color: #101090;
+}
+#etiket{
+font-size: 14px;
+}
+form {
+  flex: 2;
+  margin-top: 4%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form label{
+display: block;
+}
+form input[type="text"],form input[type="password"]{
+width: 350px;
+padding: 8px;
+box-sizing: border-box;
+font-size: 14px;
+}
+
+form input[type="button"]{
+  width: 350px;
+  padding: 10px 0;
+  background-color: #101090;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  display: block;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+form input[type="button"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.50);
+
+}
+
+form h2 {
+font-weight: 600;
+text-align: left;
+}
+.reklam {
+flex: 2;
+background-color: white;
+padding: 0px;
+border-radius: 15px;
+max-width: 48%;
+height: 100%;
+background-image: url(resimler/arkaplan.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+.qr-code{
+  margin-top: 0%;
+  display: none ;
+  width: 160px;
+  height: 160px;
+  padding: 8px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-sizing: content-box;
+  border: 1px solid #E0E0E0;
+}
+.input-wrap {
+  position: relative;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.input-wrap input[type="text"],
+.input-wrap input[type="password"] {
+width: 100%;
+min-width: 350px;
+padding: 12px 14px;
+background-color: 	#C2CEFF;
+color: white;
+border-radius: 8px;
+border: 0px solid white;
+font-weight: 500;
+font-size: 14px;
+letter-spacing: 0.5px;
+border: 2px solid black;
+}
+
+.alt-katman {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 6px;
+}
+.alt-katman.sadece-checkbox {
+  justify-content: flex-end;
+  
+}
+.checkbox-group.sol-altta{
+  justify-content: flex-start;
+  font-size: 14px;
+  color: #101090;
+}
+.checkbox-group.sag-altta{
+  justify-content: flex-end;
+}
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  color: #CFCFCF;
+  gap: 6px;
+  
+}
+.checkbox-group:checked{
+  background-color: #F3F9FF;
+}
+.goz-label{
+  cursor: pointer;
+}
+.goz-icon{
+ display: inline-block;
+  width: 28px;
+  height: 28px;
+  background-image: url(resimler/kapalı.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #E1E7FF;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: background-image 0.3s ease-in-out, background-color 0.3s ease-in-out, transform 0.3s ease;
+}
+#show:checked + .goz-icon{
+  background-image: url(resimler/açık.png);
+  background-color: #E1E7FF;
+  
+}
+.forgot-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+.forgot-psw {
+  font-size: 13px;
+  color: #101090;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+.forgot-psw:hover{
+  transform: scale(1.1);
+  text-decoration: underline;
+}
+.dil {
+  visibility: hidden;
+font-size: 14px;
+margin-right: 3%;
+text-align: right;
+cursor: pointer;
+}
+
+@media (max-width: 429px) {
+  html, body {
+   height: auto !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 0;
+    margin: 0;
+  }
+
+ .ana-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 100%;
+  height: auto !important;         
+  max-height: none !important;     
+  overflow: visible !important;    
+  box-sizing: border-box;
+  padding: 20px 10px;
+}
+  .form-wrapper {
+    width: 100%;
+    max-width: 95%;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .baslik {
+    font-size: 20px;
+    text-align: center;
+    margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.2 !important;
+  }
+  .baslık-bilgi{
+  font-size: 14px;
+  font-weight: 500px;
+  text-align: center;
+  width: 100%;
+  margin: 15px 0 40px 0 !important; 
+  padding: 0 !important;
+  line-height: 1.2 !important;
+  max-width: 280px;
+  box-sizing: border-box;
+}
+h1, h2 {
+  margin: 20px !important;
+  padding: 0 !important;
+  line-height: 1.2;
+}
+
+  form {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 0% !important;
+  }
+
+  .form-group {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .input-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+  }
+
+  .input-wrap label {
+    font-size: 14px;
+  }
+
+  .input-wrap input[type="text"],
+  .input-wrap input[type="password"],
+  form input[type="button"] {
+    width: 100%;
+    font-size: 15px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: white;
+    border: none;
+  }
+
+  .forgot-psw {
+    font-size: 12px;
+    text-align: right;
+    width: 100%;
+  }
+
+  .checkbox-group {
+    font-size: 13px;
+    gap: 6px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .alt-baslik {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .reklam {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  min-height: 180px; 
+  max-height: none;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  align-self: center;
+  margin-top: -10% !important;
+}
+  .dil {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 16px;
+  }
+
+  .qr-code {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto;
+  }
+
+}
+
+@media (min-width: 430px) and (max-width: 767px){
+  html, body {
+    overflow-y: auto !important;
+    height: auto !important;
+  }
+
+  .ana-content {
+    flex-direction: column;
+    align-items: center;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 100vh;
+    gap: 20px;
+  }
+
+  .form-wrapper {
+    width: 100%;
+    align-items: center;
+  }
+
+  form {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .baslik {
+    text-align: center;
+    margin: 0 auto 20px auto;
+    padding: 0 10px;
+    font-size: 22px;
+  }
+.baslık-bilgi{
+  font-size: 14px;
+  font-weight: 500px;
+  text-align: center;
+  line-height: 1.4;
+  padding: 0 16px;
+  width: 100%;
+  margin:0 auto 16px auto;
+  max-width: 280px;
+  box-sizing: border-box;
+}
+  .form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .input-wrap {
+  position: relative;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+
+  .input-wrap input[type="text"],
+  .input-wrap input[type="password"],
+  form input[type="button"] {
+    width: 100%;
+    max-width: 350px;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+
+.forgot-psw {
+  margin-top: 6px;
+  font-size: 13px;
+  text-align: left;
+}
+
+  .reklam {
+    width: 95%;
+    border-radius: 15px;
+    min-height: 200px;
+  }
+
+  .qr-code {
+    margin: 20px auto;
+  }
+
+  .dil {
+    margin: 20px auto 0 auto;
+    text-align: center;
+  }
+}
+@media (max-width: 767px) {
+  html, body {
+    overflow-y: auto !important;
+    height: auto !important;
+  }
+
+  .ana-content {
+    flex-direction: column;
+    align-items: center;
+    height: auto !important;
+    min-height: 100vh;
+    padding: 20px 10px;
+    gap: 20px;
+  }
+
+  .form-wrapper {
+    width: 100%;
+    max-width: 95%;
+    align-items: center;
+    padding: 0;
+  }
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    gap: 20px;
+  }
+
+  .form-group {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .input-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .input-wrap label {
+    font-size: 15px;
+  }
+
+  .input-wrap input[type="text"],
+  .input-wrap input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    color: white;
+    border: none;
+  }
+
+  form input[type="button"] {
+    width: 100%;
+    padding: 11px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+
+  .baslik {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 0 10px;
+  }
+  .baslık-bilgi{
+  font-size: 14px;
+  font-weight: 500px;
+  text-align: center;
+  line-height: 1.4;
+  padding: 0 16px;
+  width: 100%;
+  margin:0 auto 35px auto;
+  max-width: 280px;
+  box-sizing: border-box;
+}
+
+  .alt-baslik {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .checkbox-group {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .forgot-psw {
+    font-size: 13px;
+    text-align: left;
+  }
+
+  .reklam {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    min-height: 200px;
+    background-color: #f0f0f0;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+  }
+
+  .dil {
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .ana-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    justify-content: center;
+  }
+
+  .baslik {
+    text-align: center;
+    font-size: 24px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+  }
+  .baslık-bilgi{
+  font-size: 14px;
+  font-weight: 500px;
+  text-align: center;
+  line-height: 1.4;
+  padding: 0 16px;
+  width: 100%;
+  margin:0 auto 16px auto;
+  max-width: 280px;
+  box-sizing: border-box;
+}
+
+  .form-wrapper {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    gap: 6px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .form-group {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0 auto;
+    padding: 0;
+    gap: 4px;
+    margin-bottom: 16px;
+  }
+
+  .input-wrap {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    margin: 0 auto;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .input-wrap label {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .input-wrap input[type="text"],
+  .input-wrap input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: white;
+    margin: 0;
+  }
+
+  .alt-katman {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .forgot-psw {
+    font-size: 13px;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    color: #555;
+    margin: 0;
+    padding: 0;
+    padding-left: 12px;
+  }
+.alt-katman.sadece-checkbox {
+  display: flex;
+  justify-content: right;          
+  width: 100%;
+  max-width: 360px;         
+  margin: 6px auto 0px -15px;
+}
+
+  .goz-icon {
+    width: 28px;
+    height: 28px;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+  }
+
+  form input[type="button"] {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0;
+  }
+
+  .alt-baslik {
+    font-size: 16px;
+    color: #3D52A0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .dil {
+    text-align: center;
+    width: 100%;
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .reklam {
+    display:block !important;
+    width: 100%;
+    max-width: 360px;
+    max-height: 100%;
+    height: 800px;
+    background-color: #f5f5f5;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    margin: 10px auto 0 auto;
+    flex-grow: 1;
+    align-self: stretch;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .ana-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items: flex-start;
+    gap: 65px;
+    padding: 30px;
+  }
+
+   .baslik {
+    font-size: 24px;
+    white-space: normal;
+    overflow: visible;       
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 100%;
+    line-height: 1.4;
+    transform: translateX(-12px);
+  }
+  .baslık-bilgi{
+  font-size: 14px;
+  font-weight: 500px;
+  text-align: center;
+  line-height: 1.4;
+  padding: 0 16px;
+  width: 100%;
+  margin:0 auto 10px auto;
+  max-width: 280px;
+  box-sizing: border-box;
+}
+
+  .form-wrapper {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  form {
+    width: 100%;
+    max-width: 300px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .input-wrap {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .input-wrap input[type="text"],
+  .input-wrap input[type="password"] {
+    width: 100% !important;
+    max-width: 300px !important;
+    min-width: unset !important;
+    padding: 12px 14px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+
+  form input[type="button"] {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+
+  .reklam {
+    width: 48%;
+    max-width: 600px;
+    min-height: 680px;
+    background-color: #f5f5f5;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+  }
+}
+
+/*@media (width: 1024px) and (height: 600px) {
+  .ana-content {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    padding: 20px;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .form-wrapper,
+  .reklam {
+    width: 45%;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-wrapper {
+    justify-content: center;
+    padding-top: 20px;
+  }
+
+  .baslik {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 20px;
+    white-space: normal;
+    line-height: 1.4;
+  }
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+  }
+
+ .input-wrap {
+  width: 100%;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin: 0 auto;
+}
+.input-wrap label {
+  align-items: left;
+  font-size: 15px;
+  color: #3D52A0;
+  padding-left: 4px; 
+}
+
+.input-wrap input[type="text"],
+.input-wrap input[type="password"] {
+  width: 100%;
+  max-width: 50%;
+  padding: 10px 12px;
+  font-size: 15px;
+}
+.forgot-psw {
+  align-self: flex-start;
+  font-size: 13px;
+  color: #7091E6;
+  margin-top: 6px;
+  margin-left: calc(25% - 4px);
+}
+.alt-katman {
+  width: 100%;
+  max-width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  align-self: center;
+  margin-top: 4px;
+}
+  form input[type="button"] {
+    width: 100%;
+    max-width: 50%;
+    padding: 10px 12px;
+    font-size: 15px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .reklam {
+    align-self: flex-start;
+    min-height: 540px;
+    height: auto;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    margin-top: 10px;
+  }
+}*/
