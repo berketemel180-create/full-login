@@ -1,4 +1,5 @@
 window.onload = function () {
+
   // gizle göster
   document.getElementById("show").addEventListener("change", function () {
     const sifre = document.getElementById("mpassword");
@@ -37,6 +38,34 @@ window.onload = function () {
       localStorage.removeItem("checkbox");
     }
   });
+
+     qrKodOlusturSagAlan();
+  qrtimer = setInterval(qrKodOlusturSagAlan, 45000);
+};
+
+function qrKodOlusturSagAlan() {
+  const qrDiv = document.getElementById("qrBox");
+  qrDiv.innerHTML = "";
+
+  const veri = "XBank-Login-" + Date.now();
+  new QRCode(qrDiv, {
+    text: veri,
+    width: 160,
+    height: 160
+  });
+
+  // Geri sayım göstergesi
+  let kalanSure = 45;
+  const countdownEl = document.getElementById("qrCountdown");
+  countdownEl.textContent = `${kalanSure} sn içinde yenilenecek`;
+
+  clearInterval(countdownEl._interval);
+  countdownEl._interval = setInterval(() => {
+    kalanSure--;
+    countdownEl.textContent = `${kalanSure} sn içinde yenilenecek`;
+    if (kalanSure <= 0) clearInterval(countdownEl._interval);
+  }, 1000);
+
 };
 //email input force rakam
 const emailim = document.getElementById("mno");
@@ -176,57 +205,12 @@ function qrKodOlustur() {
 }
 */
 
-let qrtimer = null;
-
-const qrbuton = document.getElementById("qrgiris");
-const qrkod = document.querySelector(".qr-code");
-
-const gizlenecekler = document.querySelectorAll(
-  ".mno, .mpassword, .checkbox-group, label[for='mno'], label[for='mpassword']"
-);
-
-qrbuton.addEventListener("click", function () {
-  if (qrbuton.value === "QR İle Gir") {
-    qrbuton.value = "Kapat";
-    qrkod.style.display = "block";
-    gizlenecekler.forEach(el => {
-      el.style.display = "none";
-    });
-
-    qrKodOlustur();
-    qrtimer = setInterval(qrKodOlustur, 45000);
-  } else {
-    qrbuton.value = "QR İle Gir";
-    qrkod.style.display = "none";
-
-    gizlenecekler.forEach(el => {
-      el.style.display = (el.tagName === "INPUT") ? "inline-block" : "block";
-    });
-
-    clearInterval(qrtimer);
-    qrtimer = null;
-  }
-});
-
-function qrKodOlustur() {
-  const qrDiv = document.querySelector(".qr-code");
-  qrDiv.innerHTML = "";
-
-  const veri = "XBank-Login-" + Date.now();
-  new QRCode(qrDiv, {
-    text: veri,
-    width: 160,
-    height: 160
-  });
-  
-}
-
 const form = document.getElementById("loginForm");
 document.querySelector("input[type='button']").addEventListener("click",function(e){
   e.preventDefault();
   const musteriNo =document.getElementById("mno").value;
   const sifre = document.getElementById("mpassword").value;
-fetch("/login", {
+fetch("http://localhost:3000/login", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
@@ -237,6 +221,8 @@ fetch("/login", {
 .then(data => alert(data.message))
 .catch(error => {
   console.error("hata:", error);
-  alert("sunucuya bağlanamadı");
+  alert("sunucuya bağlanılmadı");
 });
 });
+
+ 

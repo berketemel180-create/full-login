@@ -47,6 +47,17 @@ margin-left: 41%;
 flex: 0;
 max-width: 400px;
 }
+.qr-title, .qr-meta span { 
+  color: #101090; 
+}
+.qr-title{
+  align-items: stretch;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: clamp(16px,2.2vw+8px,22px);
+}
 .baslık-bilgi{
 font-size: 18px;
 color: #101090;
@@ -111,23 +122,59 @@ form input[type="button"]{
 form input[type="button"]:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.50);
-
+  transition: background-image 0.6s ease-in-out, background-color 0.6s ease-in-out, transform 0.6s ease;
 }
 
 form h2 {
 font-weight: 600;
 text-align: left;
 }
+.sag-alan {
+  flex: 2;
+  display: flex;
+  flex-direction: column; 
+  justify-content: flex-start; 
+  max-width: 48%;
+  height: 100%;
+  background: none; 
+  border-radius: 15px;
+  padding: 0;
+  gap: 16px;
+}
+
+.qr-panel {
+  flex: 0 0 40%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  
+}
+.qr-meta {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+}
+.qr-frame{
+  background-color: white;
+  border-radius: 15px;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  margin: 0 auto;
+}
 .reklam {
-flex: 2;
-background-color: white;
-padding: 0px;
-border-radius: 15px;
-max-width: 48%;
-height: 100%;
-background-image: url(resimler/arkaplan.jpg);
-background-size: cover;
-background-repeat: no-repeat;
+  flex: 0 0 55%; 
+  background-image: url(resimler/arkaplan.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 15px;
 }
 
 .qr-code{
@@ -141,6 +188,10 @@ background-repeat: no-repeat;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   box-sizing: content-box;
   border: 1px solid #E0E0E0;
+}
+#qrCountdown {
+  display: block;
+  text-align: center;
 }
 .input-wrap {
   position: relative;
@@ -216,10 +267,11 @@ border: 2px solid black;
   
 }
 .forgot-wrapper {
-  width: 100%;
+  width: 300px;
+  margin-top: 20px;
   display: flex;
-  justify-content: center;
-  margin-top: 12px;
+  justify-content: flex-start;
+  margin-right: 35px;
 }
 .forgot-psw {
   font-size: 13px;
@@ -230,6 +282,7 @@ border: 2px solid black;
 .forgot-psw:hover{
   transform: scale(1.1);
   text-decoration: underline;
+  transition: background-image 0.6s ease-in-out, background-color 0.6s ease-in-out, transform 0.6s ease;
 }
 .dil {
   visibility: hidden;
@@ -357,13 +410,17 @@ h1, h2 {
     text-align: center;
     margin-top: 10px;
   }
-
+  .sag-alan { 
+    height: auto; 
+    gap: 16px;
+    max-width: 100%;
+    width: 100%;
+  }
   .reklam {
   display: block;
-  width: 100%;
-  max-width: 320px;
-  min-height: 180px; 
-  max-height: none;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 260px !important;
   background-color: #f0f0f0;
   border-radius: 12px;
   background-size: cover;
@@ -371,7 +428,7 @@ h1, h2 {
   box-sizing: border-box;
   flex-shrink: 0;
   align-self: center;
-  margin-top: -10% !important;
+  margin-top: 0% !important;
 }
   .dil {
     text-align: center;
@@ -386,11 +443,242 @@ h1, h2 {
   }
 
 }
+@media (max-width:390px){
+  html, body {
+    overflow-y: auto !important;
+    height: 100dvh !important;
+    overflow-x: hidden;
+  }
+body {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+  .ana-content {
+    flex-direction: column;
+    align-items: center;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 100vh;
+    gap: 20px;
+  }
 
+  .form-wrapper {
+    width: 100%;
+    align-items: center;
+  }
+
+  form {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .baslik {
+    text-align: center;
+    margin: 0 auto 20px auto;
+    padding: 0 10px;
+    font-size: 22px !important;
+  }
+.baslık-bilgi{
+  font-size: 14px;
+  font-weight: 500px;
+  text-align: center;
+  line-height: 1.4;
+  padding: 0 16px;
+  width: 100%;
+  margin:0 auto 16px auto;
+  max-width: 280px;
+  box-sizing: border-box;
+}
+  .form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .input-wrap {
+  position: relative;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+
+  .input-wrap input[type="text"],
+  .input-wrap input[type="password"],
+  form input[type="button"] {
+    width: 100%;
+    max-width: 350px;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+.forgot-wrapper {
+  width: 300px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  margin-right: 35px;
+}
+.forgot-psw {
+  margin-top: 6px;
+  font-size: 13px;
+  text-align: left;
+}
+
+  .reklam {
+    width: 95%;
+    border-radius: 15px;
+    min-height: 200px;
+  }
+
+  .qr-code {
+    margin: 20px auto;
+  }
+
+  .dil {
+    margin: 20px auto 0 auto;
+    text-align: center;
+  }
+}
+
+@media (min-width: 393px) and (max-width: 429px){
+html, body {
+    overflow-y: auto !important;
+    height: 100dvh !important;
+    overflow-x: hidden;
+  }
+body {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+  .ana-content {
+    flex-direction: column;
+    align-items: center;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 100vh;
+    gap: 20px;
+  }
+
+  .form-wrapper {
+    width: 100%;
+    align-items: center;
+  }
+
+  form {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .baslik {
+    text-align: center;
+    margin: 0 auto 20px auto;
+    padding: 0 10px;
+    font-size: 22px !important;
+  }
+.baslık-bilgi{
+  font-size: 14px;
+  font-weight: 500px;
+  text-align: center;
+  line-height: 1.4;
+  padding: 0 16px;
+  width: 100%;
+  margin:0 auto 16px auto;
+  max-width: 280px;
+  box-sizing: border-box;
+}
+  .form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .input-wrap {
+  position: relative;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+
+  .input-wrap input[type="text"],
+  .input-wrap input[type="password"],
+  form input[type="button"] {
+    width: 100%;
+    max-width: 350px;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+.forgot-wrapper {
+  width: 300px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  margin-right: 35px;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+.forgot-psw {
+  margin-top: 6px;
+  font-size: 13px;
+  text-align: left;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+  .reklam {
+    width: 95%;
+    border-radius: 15px;
+    min-height: 200px;
+  }
+
+  .qr-code {
+    margin: 20px auto;
+  }
+
+  .dil {
+    margin: 20px auto 0 auto;
+    text-align: center;
+  }
+}
 @media (min-width: 430px) and (max-width: 767px){
   html, body {
     overflow-y: auto !important;
     height: auto !important;
+    overflow-x: hidden;
   }
 
   .ana-content {
@@ -474,9 +762,12 @@ h1, h2 {
 }
 
   .reklam {
-    width: 95%;
+    width: 520px !important;
+    max-width: 100% !important;
+    min-height: 280px !important;
     border-radius: 15px;
-    min-height: 200px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .qr-code {
@@ -486,6 +777,12 @@ h1, h2 {
   .dil {
     margin: 20px auto 0 auto;
     text-align: center;
+  }
+   .sag-alan { 
+    height: auto; 
+    gap: 16px; 
+    max-width: 100% !important;
+    width: 100 !important;
   }
 }
 @media (max-width: 767px) {
@@ -604,6 +901,7 @@ h1, h2 {
     background-size: cover;
     background-position: center;
     border-radius: 12px;
+    margin-top: 0 !important;
   }
 
   .dil {
@@ -611,187 +909,13 @@ h1, h2 {
     font-size: 14px;
     cursor: pointer;
   }
-}
-@media (min-width: 768px) and (max-width: 1023px) {
-  .ana-content {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    justify-content: center;
-  }
-
-  .baslik {
-    text-align: center;
-    font-size: 24px;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto 30px auto;
-  }
-  .baslık-bilgi{
-  font-size: 14px;
-  font-weight: 500px;
-  text-align: center;
-  line-height: 1.4;
-  padding: 0 16px;
-  width: 100%;
-  margin:0 auto 16px auto;
-  max-width: 280px;
-  box-sizing: border-box;
-}
-
-  .form-wrapper {
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    align-items: center;
-  }
-
-  form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    gap: 6px;
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
-
-  .form-group {
-    width: 100%;
-    max-width: 360px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    margin: 0 auto;
-    padding: 0;
-    gap: 4px;
-    margin-bottom: 16px;
-  }
-
-  .input-wrap {
-    width: 100%;
-    max-width: 360px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-    margin: 0 auto;
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
-
-  .input-wrap label {
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0;
-  }
-
-  .input-wrap input[type="text"],
-  .input-wrap input[type="password"] {
-    width: 100%;
-    padding: 10px 12px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    box-sizing: border-box;
-    color: white;
-    margin: 0;
-  }
-
-  .alt-katman {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  .forgot-psw {
-    font-size: 13px;
-    text-decoration: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .checkbox-group {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 13px;
-    color: #555;
-    margin: 0;
-    padding: 0;
-    padding-left: 12px;
-  }
-.alt-katman.sadece-checkbox {
-  display: flex;
-  justify-content: right;          
-  width: 100%;
-  max-width: 360px;         
-  margin: 6px auto 0px -15px;
-}
-
-  .goz-icon {
-    width: 28px;
-    height: 28px;
-    background-size: cover;
-    background-position: center;
-    display: inline-block;
-  }
-
-  form input[type="button"] {
-    width: 100%;
-    padding: 10px 12px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin: 0;
-  }
-
-  .alt-baslik {
-    font-size: 16px;
-    color: #3D52A0;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-  }
-
-  .dil {
-    text-align: center;
-    width: 100%;
-    font-size: 13px;
-    margin: 0;
-    padding: 0;
-  }
-
-  .reklam {
-    display:block !important;
-    width: 100%;
-    max-width: 360px;
-    max-height: 100%;
-    height: 800px;
-    background-color: #f5f5f5;
-    background-size: cover;
-    background-position: center;
-    border-radius: 12px;
-    margin: 10px auto 0 auto;
-    flex-grow: 1;
-    align-self: stretch;
+   .sag-alan { 
+    height: auto; 
+    gap: 16px; 
+    justify-content: flex-start;
   }
 }
+
 
 @media (min-width: 1024px) and (max-width: 1279px) {
   .ana-content {
@@ -873,9 +997,8 @@ h1, h2 {
   }
 
   .reklam {
-    width: 48%;
+    width: 100%;
     max-width: 600px;
-    min-height: 680px;
     background-color: #f5f5f5;
     background-size: cover;
     background-position: center;
