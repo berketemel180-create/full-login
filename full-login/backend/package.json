@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "engines": { "node": ">=18" },
   "scripts": {
-    "start": "npm start --prefix backend",
+    "start": "node index.js",
     "heroku-postbuild": "npm ci --prefix backend"
   }
 }

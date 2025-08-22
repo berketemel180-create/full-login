@@ -210,18 +210,23 @@ document.querySelector("input[type='button']").addEventListener("click",function
   e.preventDefault();
   const musteriNo =document.getElementById("mno").value;
   const sifre = document.getElementById("mpassword").value;
-fetch("http://localhost:3000/login", {
+fetch("/login", {
   method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
+  headers: { "Content-Type": "application/json" },
   body: JSON.stringify({ musteriNo, sifre })
 })
-.then(response => response.json())
-.then(data => alert(data.message))
+.then(async (res) => {                     
+  const text = await res.text();
+  let data;
+  try { data = JSON.parse(text); } 
+  catch { throw new Error(`Beklenmedik Hata: ${text}`); }
+
+  if (!res.ok) throw new Error(data.message || "Hata");
+  alert(data.message);
+})
 .catch(error => {
   console.error("hata:", error);
-  alert("sunucuya bağlanılmadı");
+  alert(error.message || "Sunucuya Bağlanamadı");
 });
 });
 
